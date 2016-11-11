@@ -72,11 +72,10 @@ function showTextByClickingButton(is_seen) {
 }
 
 function numberValidation() {
-    show("ch1_error", false);
     var x, text, giveAnswer;
 
     x = document.getElementById("numb").value;
-    showError = true;
+    document.getElementById("numb").className = "w3-input w3-border w3-pale-red required";
 
     if (!x || 0 === x.length || /^\s*$/.test(x)) {
         text = "You haven't entered anything";
@@ -87,13 +86,12 @@ function numberValidation() {
     } else if (x > 101) {
         text = "Number is too big";
     } else {
-        showError = false;
+        text = ""
         alert("Square of " + x + " is " + Math.sqrt(x).toFixed(2));
+        document.getElementById("numb").value = null;
+        document.getElementById("numb").className = "w3-input w3-border w3-light-grey required";
     }
-    if (showError) {
-      show("ch1_error", true);
-      document.getElementById("ch1_error").innerHTML = text;
-    }
+    document.getElementById("ch1_error").innerHTML = text;
 }
 
 
