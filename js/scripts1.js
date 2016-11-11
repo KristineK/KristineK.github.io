@@ -11,7 +11,7 @@ window.onclick = function(event) {
 }
 
 $( document ).ready(function() {
-    $("#header").load("./menu.html");
+    $("#header").load("/menu.html");
 });
 
 function showTextByClickingButton(is_seen) {
