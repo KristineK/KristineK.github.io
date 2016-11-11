@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script src="scripts1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#menu").load("menu.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <ul id="menu"></ul>
+    <button onclick="alertSummoning()">To summon alert</button>
+    <button onclick="conformationOrDenial()">To conform or deny</button>
+    <button onclick="clickToEnterNumber()">Click to enter a number</button>
+    <p id="textForAlerts"></p>
+  </body>
+<html>

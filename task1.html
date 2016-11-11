@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script src="scripts1.js"></script>
+    <script src="che1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#menu").load("menu.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <ul id="menu"></ul>
+    <p>Please input a number from 50 to 100 and I will give you square root of it (rounded to 2 number after comma)</p>
+
+    <input id="numb">
+
+    <button type="button" onclick="numberValidation()">Submit</button>
+
+    <p id="ch1_error" class="error"></p>
+    <!-- <p id="ch1_answer"></p> -->
+  </body>
+<html>
