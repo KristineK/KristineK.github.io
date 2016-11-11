@@ -106,9 +106,11 @@ function conformationOrDenial() {
     show("textForAlerts", true);
     var x;
     if (confirm("Press a button!") == true) {
-        x = "Why on earth have you agreed to it?!";
+        x = "<i>Why on earth have you agreed to it?!</i>";
+        document.getElementById("textForAlerts").className = "w3-slim";
     } else {
-        x = "You have dared to deny me!";
+        x = "<b>You have dared to deny me!!!</b>";
+        document.getElementById("textForAlerts").className = "w3-wide";
     }
     document.getElementById("textForAlerts").innerHTML = x;
 }
@@ -127,6 +129,9 @@ function clickToEnterNumber() {
         } else {
           text = "Wrong! It is " + randomNumber + " instead of " + number
         }
+        document.getElementById("textForAlerts").className = "";
         document.getElementById("textForAlerts").innerHTML = text;
+    } else {
+      show("textForAlerts", false);
     }
 }

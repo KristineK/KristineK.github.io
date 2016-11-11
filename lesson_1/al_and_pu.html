@@ -2,14 +2,17 @@
   <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/style1.css">
+    <link rel="stylesheet" type="text/css" href="../css/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/scripts1.js"></script>
   </head>
   <body>
     <div id="header"></div>
-    <button onclick="alertSummoning()">To summon alert</button>
-    <button onclick="conformationOrDenial()">To conform or deny</button>
-    <button onclick="clickToEnterNumber()">Click to enter a number</button>
-    <p id="textForAlerts"></p>
+    <div class="w3-center">
+      <button onclick="alertSummoning()"  class="w3-btn w3-round-xlarge w3-ripple w3-red">To summon alert</button>
+      <button onclick="conformationOrDenial()" class="w3-btn w3-round-xlarge w3-ripple w3-teal">To conform or deny</button>
+      <button onclick="clickToEnterNumber()" class="w3-btn w3-round-xlarge w3-ripple w3-khaki">Click to enter a number</button>
+      <p id="textForAlerts"></p>
+    </div>
   </body>
 <html>
