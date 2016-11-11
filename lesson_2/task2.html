@@ -5,23 +5,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/scripts1.js"></script>
   </head>
-  <body>
+  <body onload="prepare_blue()">
     <div id="header"></div>
     <div id="green_loader">
 		  <h3 id="green_and_blue_status">
 		    	<label style="color: green;">Green</label> Status:
 		  </h3>
 	    <button id="start_green">Start loading green</button>
-	    <h4 id="finish_green" style="display:none"><label style="color: green;">Green</label> Loaded</h4>
+	    <h2 id="finish_green" style="display:none"><label style="color: green;">Green</label> Loaded</h2>
     </div>
     <div id="green_and_blue_loader">
 	    <h3 id="green_and_blue_status">
 	    	<label style="color: green;">Green</label> and <label style="color: blue;">Blue</label> Status:
 	    </h3>
 	    <button id="start_green_and_blue">Start loading green and blue</button>
-	    <h4 id="finish_green_and_blue" style="display:none">
+	    <h2 id="finish_green_and_blue" style="display:none">
 	    	<label style="color: green;">Green</label> and <label style="color: blue;">Blue</label> Loaded
-	    </h4>
+	    </h2>
     </div>
   </body>
 <html>

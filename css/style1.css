@@ -105,3 +105,14 @@ p {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+#loading_green, #loading_green_without_blue, #loading_green_with_blue, #loading_blue_without_green {
+    padding: 15px 32px;
+    font-size: 24px;
+    margin: 4px 2px;
+}
+
+#finish_green, #finish_green_and_blue {
+    padding: 15px 32px;
+    margin: 4px 2px;
+}

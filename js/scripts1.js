@@ -26,6 +26,12 @@ function magic(){
     },7000);
 }
 
+function prepare_blue(){
+    $('#green_and_blue_loader').hide();
+    setTimeout(function() {
+        $('#green_and_blue_loader').show();
+    },1500);
+}
 
 $(function(){
   $('button#start_green').click(function(){
@@ -34,7 +40,7 @@ $(function(){
     setTimeout(function() {
       $('#loading_green').hide();
       $('#finish_green').show();
-    } , 5000 );
+    } , 4500 );
   });
 });
 
@@ -44,7 +50,7 @@ $(function(){
     $('#start_green_and_blue').hide();
     $('#start_green_and_blue').before("<div id='loading_green_without_blue'>Loading <label style=\"color: green;\">green</label>... <img src='/img/green-loader.gif'></div>");
     setTimeout(function() {
-      $('#start_green_and_blue').before("<div id='loading_green_with_blue'>Loading <label style=\"color: blue;\">blue</label>... <img src='/img/green_and_blue-loader.gif'></div>");
+      $('#start_green_and_blue').before("<div id='loading_green_with_blue'>Loading <label style=\"color: blue;\">blue</label>... <img src='/img/blue-loader.gif'></div>");
     } , 2000 );
     setTimeout(function() {
       $('#loading_green_without_blue').hide();
