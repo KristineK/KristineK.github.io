@@ -9,10 +9,9 @@ window.onclick = function(event) {
     show("sync_menu", false);
   }
 }
-$(function(){
-    console.log("test");
-    console.log("../menu.html");
-    $("body").load("../menu.html");
+
+$( document ).ready(function() {
+    $("#header").load("menu.html");
 });
 
 function showTextByClickingButton(is_seen) {
