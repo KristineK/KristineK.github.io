@@ -44,7 +44,7 @@ label.vfb-desc {
     padding-right: 16px;
 }
 
-#show_me
+#show_me, #hide_text
 {
     visibility: hidden;
 }
