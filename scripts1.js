@@ -3,13 +3,18 @@ function show(id, value) {
   document.getElementById(id).style.visibility = value ? 'visible' : 'hidden';
 }
 
-// Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.menu_button')) {
     show("base_menu", false);
     show("sync_menu", false);
   }
-} 
+}
+
+function showTextByClickingButton(is_seen) {
+    show("show_me", is_seen);
+    document.getElementById("show_text").disabled = is_seen;
+    document.getElementsByName("hide_text")[0].disabled = (! is_seen);
+}
 
 function numberValidation() {
     show("ch1_error", false);
@@ -58,7 +63,7 @@ function clickToEnterNumber() {
     var text;
     var number = prompt("Please enter a number", "");
     var randomNumber = Math.random();
-    
+
     if (number != null) {
         if (number == randomNumber) {
           text = "Yes, the number is indeed " + number + "! How are you today?";

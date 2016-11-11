@@ -17,8 +17,8 @@
     <a title="Link 1" href="link1">This is a link</a>
     <a title="Link 2">This is a link without a destination point</a>
     <label class="vfb-desc">Button</label>
-    <button onclick='show("show_me", true); show("show_text", false); show("hide_text", true);' id="show_text">Show</button>
-    <input type="button" id="hide_text" value="Hide" onclick='show("show_me", false); show("show_text", true); show("hide_text", false);' />
+    <button onclick='showTextByClickingButton(true)' id="show_text">Show</button>
+    <input type="button" name="hide_text" value="Hide" onclick='showTextByClickingButton(false)' disabled />
     <p id="show_me">I am here!</p>
     <div>
       <label for="vfb-10" class="vfb-desc">Textarea</label>
