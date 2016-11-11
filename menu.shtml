@@ -1,0 +1,18 @@
+<ul id="menu">
+  <li><a href="index">Home</a></li>
+  <li><a onclick="show('base_menu', true)" class="menu_button">Lesson 1</a>
+    <div class="sub-nav" id="base_menu">
+      <a href="lesson_1/loc">Locators</a>
+      <a href="lesson_1/act">Actions</a>
+      <a href="lesson_1/al_p">Alerted page</a>
+      <a href="lesson_1/al_and_pu">Alert and pop-ups</a>
+      <a href="lesson_1/task1">Task 1</a>
+    </div>
+  </li>
+  <li><a onclick="show('sync_menu', true)" class="menu_button">Lesson 2</a>
+    <div class="sub-nav" id="sync_menu">
+      <a href="lesson_2/sync">Synchronization</a>
+      <a href="lesson_2/task2">Task 2</a>
+    </div>
+  </li>
+</ul>

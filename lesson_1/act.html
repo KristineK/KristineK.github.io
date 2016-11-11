@@ -1,17 +1,22 @@
 <html>
   <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="style1.css">
-    <script src="scripts1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style1.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="../js/scripts1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
       $(function(){
-        $("#menu").load("menu.html");
-      });
+        $("#menu").load("../menu.html");
+        $( "#vfb-8" ).datepicker();
+      } );
     </script>
   </head>
   <body>
-    <ul id="menu"></ul>
+    <!-- <ul id="menu"></ul> -->
+    <!--#include file="../menu.shtml" -->
 
     <label class="vfb-desc">Link</label>
     <a title="Link 1" href="link1">This is a link</a>
@@ -58,10 +63,10 @@
         <label for="vfb-7-3" class="vfb-choice">Option 3</label>
       </span>
     </div>
-    <label for="vfb-8" class="vfb-desc">Date </label>
-    <input name="vfb-8" id="vfb-8" value="" class="vfb-text vfb-date-picker  vfb-medium   hasDatepicker" data-dp-dateformat="mm/dd/yy" type="text">
+    <label for="vfb-8" class="vfb-desc">Date</label>
+    <input name="vfb-8" id="vfb-8" value="" class="vfb-text vfb-date-picker  vfb-medium" data-dp-dateformat="mm/dd/yy" type="text">
     <label for="vfb-11" class="vfb-desc">URL </label>
-    <input name="vfb-11" id="vfb-11" value="http://www.google.com" class="vfb-text  vfb-medium   url " type="url">
+    <input name="vfb-11" id="vfb-11" value="http://www.google.com" class="vfb-text  vfb-medium" type="url">
     <label for="vfb-12" class="vfb-desc">Select </label>
     <select name="vfb-12" id="vfb-12" class="vfb-select  vfb-medium  ">
       <option value="value1">Option 1</option>
