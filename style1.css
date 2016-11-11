@@ -75,3 +75,7 @@ label.vfb-desc {
   color: red;
   font-weight: bold;
 }
+
+p {
+    padding: 12px 16px;
+}
