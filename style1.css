@@ -4,7 +4,7 @@ label.vfb-desc {
     margin: 0;
     padding: 0 0 3px 0;
     color: #000;
-    font-size: 13px; 
+    font-size: 13px;
     line-height: inherit;
     font: normal normal normal 14px / 22px "Arial", Helvetica, Arial, Verdana, sans-serif;
   }
@@ -13,7 +13,7 @@ label.vfb-desc {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 32px;
     text-decoration: none;
 }
 
@@ -32,13 +32,16 @@ label.vfb-desc {
     background-color: #333;
 }
 
-#menu li > a:hover {
+/*#menu li > a:hover {
     background-color: #111;
-}
+}*/
 
 #menu li {
     display: inline;
     float: left;
+    width: 200px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 #show_me
@@ -60,9 +63,12 @@ label.vfb-desc {
     text-decoration: none;
     display: block;
     text-align: left;
+    width: 200px;
 }
 
-.sub-nav a:hover {background-color: #f1f1f1}
+.sub-nav a:hover {
+    background-color: #f1f1f1
+}
 
 .error {
   padding: 0;
