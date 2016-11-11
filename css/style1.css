@@ -132,3 +132,8 @@ textarea {
     width: 50%;
     margin-left: 50;
 }
+
+#magic_text p {
+    font-size: 36;
+    text-align: center;
+}

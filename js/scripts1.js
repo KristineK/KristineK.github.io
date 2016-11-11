@@ -16,13 +16,13 @@ $( document ).ready(function() {
 
 function magic(){
     setTimeout(function() {
-        $('#magic_text').css('color','green');
+        $('#magic_text p').css('color','green');
     },3000);
     setTimeout(function() {
-        $('#magic_text').text('What is this magic?');
+        $('#magic_text p').text('What is this magic? It\'s dev magic~');
     },5000);
     setTimeout(function() {
-        $('#magic_text').css('color','#777');
+        $('#magic_text p').css('color','#777');
     },7000);
 }
 
