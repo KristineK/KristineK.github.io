@@ -26,6 +26,39 @@ function magic(){
     },7000);
 }
 
+
+$(function(){
+  $('#start_green button').click(function(){
+    $('#start_green').hide();
+    $('#start_green').before("<div id='loading_green'>Loading green... <img src='/img/bar_green.gif'></div>");
+    setTimeout(function() {
+      $('#loading_green').hide();
+      $('#finish_green').show();
+    } , 5000 );
+  });
+});
+
+
+$(function(){
+  $('#start_green_and_blue button').click(function(){
+    $('#start_green_and_blue').hide();
+    $('#start_green_and_blue').before("<div id='loading_green_without_blue'>Loading green... <img src='/img/bar_green.gif'></div>");
+    setTimeout(function() {
+      $('#start_green_and_blue').before("<div id='loading_green_with_blue'>Loading blue... <img src='/img/bar_blue.gif'></div>");
+    } , 2000 );
+    setTimeout(function() {
+      $('#loading_green_without_blue').hide();
+      $('#start_green_and_blue').before("<div id='loading_blue_without_green'>Green finished waiting for blue</div>");
+    } , 4000 );
+    setTimeout(function() {
+      $('#loading_green_with_blue').hide();
+      $('#loading_blue_without_green').hide();
+      $('#finish_green_and_blue').show();
+    } , 7000 );
+  });
+});
+
+
 function showTextByClickingButton(is_seen) {
     show("show_me", is_seen);
     document.getElementById("show_text").disabled = is_seen;
