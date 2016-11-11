@@ -5,12 +5,28 @@
     <script src="scripts1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script> 
+      setTimeout(function() {
+          $('#magic_text').css('color','green');
+      },3000);
+      setTimeout(function() {
+          $('#magic_text').text('What is this magic?');
+      },5000);
+      setTimeout(function() {
+          $('#magic_text').css('color','#777');
+      },7000);
+    </script> 
+    <script> 
       $(function(){
         $("#menu").load("menu.html"); 
       });
     </script> 
+
   </head>
   <body>
     <ul id="menu"></ul>
+    <a id="magic_text">This text magicly changes color</a>
+    <script>
+      document.getElementById("magic_text").style.color = "red";
+    </script>
   </body>
 <html>

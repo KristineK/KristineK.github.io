@@ -32,7 +32,7 @@ label.vfb-desc {
     background-color: #333;
 }
 
-#menu li a:hover {
+#menu li > a:hover {
     background-color: #111;
 }
 
@@ -61,6 +61,9 @@ label.vfb-desc {
     display: block;
     text-align: left;
 }
+
+.sub-nav a:hover {background-color: #f1f1f1}
+
 .error {
   padding: 0;
   color: red;
