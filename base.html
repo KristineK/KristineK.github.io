@@ -1,21 +1,16 @@
 <html>
-<head>
-<title>
-</title>
-</head>
-<body>
- <ul>
-  <li><a href="base.html">Base</a>
-    <ul>
-      <li><a href="loc.html">Loc</a></li>
-      <li><a href="act.html">Act</a></li>
-      <li><a href="che1.html">che1</a></li>
-    </ul>
-  </li>
-  <li><a href="sync.html">sync</a>
-    <ul>
-      <li><a href="che2.html">che2</a></li>
-    </ul></li>
-</ul>
-</body>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <script src="scripts1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script> 
+      $(function(){
+        $("#menu").load("menu.html"); 
+      });
+    </script> 
+  </head>
+  <body>
+    <ul id="menu"></ul>
+  </body>
 <html>
