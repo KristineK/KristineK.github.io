@@ -137,3 +137,19 @@ textarea {
     font-size: 36;
     text-align: center;
 }
+
+.egle {
+    width: 50%;
+    float: right;
+    margin: 5px 20px;
+}
+
+h2.w3-dark-grey {
+    margin: 10px 16px;
+    padding: 10px;
+    width: 42%;
+}
+
+a.lorem:hover {
+    text-decoration: none;
+}
