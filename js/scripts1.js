@@ -29,7 +29,7 @@ function prepare_blue(){
 $(function(){
   $('button#start_green').click(function(){
     $('#start_green').hide();
-    $('#start_green').before("<div id='loading_green'>Loading <label style=\"color: green;\">green</label>... <img src='/img/green-loader.gif'></div>");
+    $('#start_green').before("<div id='loading_green'><img src='/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
       $('#loading_green').hide();
       $('#finish_green').show();
@@ -41,13 +41,13 @@ $(function(){
 $(function(){
   $('button#start_green_and_blue').click(function(){
     $('#start_green_and_blue').hide();
-    $('#start_green_and_blue').before("<div id='loading_green_without_blue'>Loading <label style=\"color: green;\">green</label>... <img src='/img/green-loader.gif'></div>");
+    $('#start_green_and_blue').before("<div id='loading_green_without_blue'><img src='/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#start_green_and_blue').before("<div id='loading_green_with_blue'>Loading <label style=\"color: blue;\">blue</label>... <img src='/img/blue-loader.gif'></div>");
+      $('#start_green_and_blue').before("<div id='loading_green_with_blue'><img src='/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
     } , 2000 );
     setTimeout(function() {
       $('#loading_green_without_blue').hide();
-      $('#start_green_and_blue').before("<div id='loading_blue_without_green'><label style=\"color: green;\">Green</label> finished waiting for <label style=\"color: blue;\">blue</label></div>");
+      $('#start_green_and_blue').before("<div id='loading_blue_without_green'><i class=\"fa fa-tint\" style=\"font-size:24px;color:green\"></i> <label style=\"color: green;\">Green</label> finished waiting for <label style=\"color: blue;\">blue</label></div>");
     } , 4000 );
     setTimeout(function() {
       $('#loading_green_with_blue').hide();
