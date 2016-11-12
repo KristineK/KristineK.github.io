@@ -81,9 +81,22 @@ function numberValidation() {
         text = "You haven't entered anything";
     } else if (isNaN(x)) {
         text = "Please enter a number";
+    } else if (x < 0) {
+        text = ""
+    } else if (x == 666) {
+        text = "";
+        document.getElementById("numb").className = "w3-input w3-border w3-light-grey required";
+    } else if (x == 13) {
+        text = "Number is too small";
+        document.getElementById("numb").className = "w3-input w3-border w3-red required";
+    } else if (x == 42) {
+        text = ""
+        alert("This for has 5 features, which some people call bugs you just found 1");
+        document.getElementById("numb").value = null;
+        document.getElementById("numb").className = "w3-input w3-border w3-light-grey required";
     } else if (x < 49) {
         text = "Number is too small";
-    } else if (x > 101) {
+    } else if (x > 100) {
         text = "Number is too big";
     } else {
         text = ""
