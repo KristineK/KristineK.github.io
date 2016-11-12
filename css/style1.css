@@ -9,65 +9,9 @@ label.vfb-desc {
     font: normal normal normal 14px / 22px "Arial", Helvetica, Arial, Verdana, sans-serif;
   }
 
-#menu li > a, .menu_button {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 32px;
-    text-decoration: none;
-}
-
-#menu {
-    font: normal normal normal 20px / 28px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
-    border-radius: 4px;
-    text-decoration: none;
-    text-align: left;
-    list-style: none;
-    list-style-image: none;
-    word-spacing: normal;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-/*#menu li > a:hover {
-    background-color: #111;
-}*/
-
-#menu li {
-    display: inline;
-    float: left;
-    width: 210px;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
 #show_me
 {
     visibility: hidden;
-}
-
-.sub-nav {
-    visibility: hidden;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.sub-nav a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    width: 200px;
-}
-
-.sub-nav a:hover {
-    background-color: #f1f1f1
 }
 
 .error {

@@ -3,13 +3,6 @@ function show(id, value) {
   document.getElementById(id).style.visibility = value ? 'visible' : 'hidden';
 }
 
-window.onclick = function(event) {
-  if (!event.target.matches('.menu_button')) {
-    show("base_menu", false);
-    show("sync_menu", false);
-  }
-}
-
 $( document ).ready(function() {
     $("#header").load("/menu.html");
 });
