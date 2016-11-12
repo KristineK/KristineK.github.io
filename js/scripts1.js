@@ -141,3 +141,23 @@ function clickToEnterNumber() {
       show("textForAlerts", false);
     }
 }
+
+
+function addPersionToList() {
+    var newPersion = '<li class="w3-padding-16">'
+    newPersion += "<span onclick=\"this.parentElement.style.display='none'\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">"
+    newPersion += '<i class="fa fa-pencil"></i>'
+    newPersion += '</span>'
+    newPersion += '<span class="w3-xlarge">' + document.getElementById("name").value +'</span><br>'
+    newPersion += '<span>' + document.getElementById("job").value + '</span>'
+    newPersion += '</li>'
+    url = window.location.href;
+    // alert(url.replace(/task3_edit/, "task3"));
+    // window.open(url.replace(/task3_edit/, "task3"));
+    window.location = 'http://www.google.com';
+    window.location.assign("http://www.w3schools.com");
+    window.location = url.replace(/task3_edit/, "task3");
+    // alert("da");
+    document.getElementById("list_of_people").innerHTML += newPersion
+    // body...
+}
