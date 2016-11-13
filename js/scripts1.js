@@ -142,22 +142,45 @@ function clickToEnterNumber() {
     }
 }
 
+function openModalForAddPerson() {
+    document.getElementById("modal_button").innerHTML = "Add";
+    document.getElementById("name").value = "";
+    document.getElementById("job").value = "";
+    document.getElementById("modal_button").setAttribute("onclick", "addPersonToList()");
+    document.getElementById("modalForPerson").style.display = "block";
+}
 
-function addPersionToList() {
-    var newPersion = '<li class="w3-padding-16">'
-    newPersion += "<span onclick=\"this.parentElement.style.display='none'\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">"
+function openModalForEditPerson(index) {
+    console.log(index);
+    var editPersion = document.getElementById("person" + index);
+    console.log(editPersion);
+    document.getElementById("name").value = editPersion.getElementsByClassName("name")[0].innerHTML;
+    document.getElementById("job").value = editPersion.getElementsByClassName("job")[0].innerHTML;
+    document.getElementById("modal_button").innerHTML = "Edit";
+    document.getElementById("modal_button").setAttribute("onclick", "editPersonToList(" + index + ")");
+    document.getElementById("modalForPerson").style.display = "block";
+}
+
+function addPersonToList() {
+    var lastPersionIndex = document.getElementById("list_of_people").getElementsByTagName("li").length - 1;
+    var lastPersionId = document.getElementById("list_of_people").getElementsByTagName("li")[lastPersionIndex].getAttribute("id");
+    var idForNewPersion = parseInt(lastPersionId.replace(/person/, "")) + 1;
+    var newPersion = '<li class="w3-padding-16" id="person' + idForNewPersion + '">'
+    newPersion += "<span onclick=\"this.parentElement.style.display='none'\" class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">&times;</span>"
+    newPersion += "<span onclick=\"openModalForEditPerson(" + idForNewPersion + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">"
     newPersion += '<i class="fa fa-pencil"></i>'
     newPersion += '</span>'
-    newPersion += '<span class="w3-xlarge">' + document.getElementById("name").value +'</span><br>'
-    newPersion += '<span>' + document.getElementById("job").value + '</span>'
+    newPersion += '<span class="w3-xlarge name">' + document.getElementById("name").value +'</span><br>'
+    newPersion += '<span class="job">' + document.getElementById("job").value + '</span>'
     newPersion += '</li>'
-    url = window.location.href;
-    // alert(url.replace(/task3_edit/, "task3"));
-    // window.open(url.replace(/task3_edit/, "task3"));
-    window.location = 'http://www.google.com';
-    window.location.assign("http://www.w3schools.com");
-    window.location = url.replace(/task3_edit/, "task3");
-    // alert("da");
-    document.getElementById("list_of_people").innerHTML += newPersion
-    // body...
+    document.getElementById("list_of_people").innerHTML += newPersion;
+    document.getElementById("modalForPerson").style.display = "none";
+}
+
+
+function editPersonToList(index) {
+    var editPersion = document.getElementById("person" + index);
+    editPersion.getElementsByClassName("name")[0].innerHTML = document.getElementById("name").value;
+    editPersion.getElementsByClassName("job")[0].innerHTML = document.getElementById("job").value;
+    document.getElementById("modalForPerson").style.display = "none";
 }
