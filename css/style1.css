@@ -72,9 +72,8 @@ textarea {
     resize: none;
 }
 
-.w3-container {
-    width: 50%;
-    margin-left: 50;
+a.header_link {
+    text-decoration: none;
 }
 
 #magic_text p {
