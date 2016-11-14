@@ -96,3 +96,7 @@ h2.w3-dark-grey {
 a.lorem:hover {
     text-decoration: none;
 }
+
+#addEditPerson {
+    display: none;
+}
