@@ -15,46 +15,51 @@
           <h2>People with jobs</h2>
           <button class="w3-btn w3-white w3-border w3-left" onclick="openModalForAddPerson()">Add person</button>
     </div>
-    <div class="w3-container">
-      <ul class="w3-ul w3-card-4" id="list_of_people">
-        <li class="w3-padding-16" id="person1">
-          <span onclick="this.parentElement.style.display='none'"  class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-          <span onclick="openModalForEditPerson(1)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
-            <i class="fa fa-pencil"></i>
-          </span>
-          <span class="w3-xlarge name">Mike</span><br>
-          <span class="job">Web Designer</span>
-        </li>
-        <li class="w3-padding-16" id="person2">
-          <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-          <span onclick="openModalForEditPerson(2)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
-            <i class="fa fa-pencil"></i>
-          </span>
-          <span class="w3-xlarge name">Jill</span><br>
-          <span class="job">Support</span>
-        </li>
-        <li class="w3-padding-16" id="person3">
-          <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-          <span onclick="openModalForEditPerson(3)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
-            <i class="fa fa-pencil"></i>
-          </span>
-          <span class="w3-xlarge name">Jane</span><br>
-          <span class="job">Accountant</span>
-        </li>
-      </ul>
-    </div>
 
-    <div id="modalForPerson" class="w3-modal">
-      <div class="w3-modal-content w3-card-8 w3-padding">
-          <span onclick="this.parentElement.parentElement.style.display='none'" class="w3-closebtn w3-xlarge">&times;</span>
-          <h2>Input Form</h2>
-          <p><label>Name</label>
-          <input class="w3-input" type="text" id="name" required></p>
-          <p>
-          <label>Job</label>
-          <input class="w3-input" type="text" id="job" required></p>
-          <p>
-          <button class="w3-btn-block w3-white w3-border" id="modal_button" onclick="addPersonToList()"></button></p>
+    <div class="w3-row">
+      <div class="w3-half">
+        <div class="w3-container">
+          <ul class="w3-ul w3-card-4" id="list_of_people">
+            <li class="w3-padding-16" id="person1">
+              <span onclick="this.parentElement.style.display='none'"  class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
+              <span onclick="openModalForEditPerson(1)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
+                <i class="fa fa-pencil"></i>
+              </span>
+              <span class="w3-xlarge name">Mike</span><br>
+              <span class="job">Web Designer</span>
+            </li>
+            <li class="w3-padding-16" id="person2">
+              <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
+              <span onclick="openModalForEditPerson(2)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
+                <i class="fa fa-pencil"></i>
+              </span>
+              <span class="w3-xlarge name">Jill</span><br>
+              <span class="job">Support</span>
+            </li>
+            <li class="w3-padding-16" id="person3">
+              <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
+              <span onclick="openModalForEditPerson(3)"  class="w3-closebtn w3-padding w3-margin-right w3-medium">
+                <i class="fa fa-pencil"></i>
+              </span>
+              <span class="w3-xlarge name">Jane</span><br>
+              <span class="job">Accountant</span>
+            </li>
+          </ul>
+        </div>
+
+        <div id="modalForPerson" class="w3-modal">
+          <div class="w3-modal-content w3-card-8 w3-padding">
+              <span onclick="this.parentElement.parentElement.style.display='none'" class="w3-closebtn w3-xlarge">&times;</span>
+              <h2>Input Form</h2>
+              <p><label>Name</label>
+              <input class="w3-input" type="text" id="name" required></p>
+              <p>
+              <label>Job</label>
+              <input class="w3-input" type="text" id="job" required></p>
+              <p>
+              <button class="w3-btn-block w3-white w3-border" id="modal_button" onclick="addPersonToList()"></button></p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
