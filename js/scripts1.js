@@ -147,7 +147,7 @@ function openModalForAddPerson() {
     document.getElementById("name").value = "";
     document.getElementById("job").value = "";
     document.getElementById("modal_button").setAttribute("onclick", "addPersonToList()");
-    showPeopleList(false);
+    showPeopleList(false, "Add person");
 }
 
 function openModalForEditPerson(index) {
@@ -156,7 +156,7 @@ function openModalForEditPerson(index) {
     document.getElementById("job").value = editPersion.getElementsByClassName("job")[0].innerHTML;
     document.getElementById("modal_button").innerHTML = "Edit";
     document.getElementById("modal_button").setAttribute("onclick", "editPersonToList(" + index + ")");
-    showPeopleList(false);
+    showPeopleList(false, "Edit person");
 }
 
 function addPersonToList() {
@@ -183,8 +183,9 @@ function editPersonToList(index) {
     showPeopleList(true);
 }
 
-function showPeopleList(show) {
+function showPeopleList(show, text = "People with jobs") {
     document.getElementById("addEditPerson").style.display = show ? "none" : "block";
     document.getElementById("listOfPeople").style.display = show ? "block" : "none";
-    document.getElementById("addPersonBtn").style.display = show ? "block" : "none";;
+    document.getElementById("addPersonBtn").style.display = show ? "block" : "none";
+    document.getElementsByTagName("h2")[0].innerHTML = text;
 }
