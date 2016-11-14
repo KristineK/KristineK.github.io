@@ -147,9 +147,7 @@ function openModalForAddPerson() {
     document.getElementById("name").value = "";
     document.getElementById("job").value = "";
     document.getElementById("modal_button").setAttribute("onclick", "addPersonToList()");
-    document.getElementById("addEditPerson").style.display = "block";
-    document.getElementById("listOfPeople").style.display = "none";
-    document.getElementById("addPersonBtn").style.display = "none";
+    showPeopleList(false);
 }
 
 function openModalForEditPerson(index) {
@@ -158,9 +156,7 @@ function openModalForEditPerson(index) {
     document.getElementById("job").value = editPersion.getElementsByClassName("job")[0].innerHTML;
     document.getElementById("modal_button").innerHTML = "Edit";
     document.getElementById("modal_button").setAttribute("onclick", "editPersonToList(" + index + ")");
-    document.getElementById("addEditPerson").style.display = "block";
-    document.getElementById("listOfPeople").style.display = "none";
-    document.getElementById("addPersonBtn").style.display = "none";
+    showPeopleList(false);
 }
 
 function addPersonToList() {
@@ -176,9 +172,7 @@ function addPersonToList() {
     newPersion += '<span class="job">' + document.getElementById("job").value + '</span>'
     newPersion += '</li>'
     document.getElementById("listOfPeople").innerHTML += newPersion;
-    document.getElementById("addEditPerson").style.display = "none";
-    document.getElementById("listOfPeople").style.display = "block";
-    document.getElementById("addPersonBtn").style.display = "block";
+    showPeopleList(true);
 }
 
 
@@ -186,13 +180,11 @@ function editPersonToList(index) {
     var editPersion = document.getElementById("person" + index);
     editPersion.getElementsByClassName("name")[0].innerHTML = document.getElementById("name").value;
     editPersion.getElementsByClassName("job")[0].innerHTML = document.getElementById("job").value;
-    document.getElementById("addEditPerson").style.display = "none";
-    document.getElementById("listOfPeople").style.display = "block";
-    document.getElementById("addPersonBtn").style.display = "block";
+    showPeopleList(true);
 }
 
-function goBackToPeopleList() {
-    document.getElementById("addEditPerson").style.display = "none";
-    document.getElementById("listOfPeople").style.display = "block";
-    document.getElementById("addPersonBtn").style.display = "block";
+function showPeopleList(show) {
+    document.getElementById("addEditPerson").style.display = show ? "none" : "block";
+    document.getElementById("listOfPeople").style.display = show ? "block" : "none";
+    document.getElementById("addPersonBtn").style.display = show ? "block" : "none";;
 }
