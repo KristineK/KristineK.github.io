@@ -201,3 +201,15 @@ function showPeopleList(show, text = "People with jobs") {
 function deletePerson(index) {
     document.getElementById("person" + index).remove();
 }
+
+function show_thanks() {
+    if (document.getElementById("fb_name").value == "") {
+        thx_text = "<h1>Thank you for your feedback!</h1>";
+    } else {
+        thx_text = "<h1>Thank you, " + document.getElementById("fb_name").value + ", for your feedback!</h1>";
+    }
+
+    document.getElementById('fb_thx').innerHTML = thx_text;
+    document.getElementById('fb_form').style.display = "none";
+    document.getElementById('fb_thx').style.display = "block";
+}

@@ -97,6 +97,18 @@ a.lorem:hover {
     text-decoration: none;
 }
 
-#addEditPerson {
+#addEditPerson, #fb_thx {
     display: none;
+}
+
+#fb_form input[type=radio].w3-radio:checked+.w3-validate {
+    color: #2196F3;
+}
+
+#fb_form input[type=radio].w3-radio:disabled+.w3-validate {
+    color: #aaa;
+}
+
+#fb_form .w3-select option[disabled] {
+    color: #aaa;
 }
