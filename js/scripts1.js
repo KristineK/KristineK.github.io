@@ -202,13 +202,69 @@ function deletePerson(index) {
     document.getElementById("person" + index).remove();
 }
 
-function show_thanks() {
-    if (document.getElementById("fb_name").value == "") {
-        thx_text = "<h1>Thank you for your feedback!</h1>";
-    } else {
-        thx_text = "<h1>Thank you, " + document.getElementById("fb_name").value + ", for your feedback!</h1>";
+function show_fd_review() {
+    var thx_text = "<div class=\"w3-card-4\"><header class=\"w3-container w3-light-grey\">";
+      // <div class="w3-card-4" style="width:70%">
+    // <header class="w3-container w3-light-grey">
+    var personName = document.getElementById("fb_name").value;
+    thx_text += "<h2>Is this the feedback you want to give us?</h2>";
+    thx_text += "</header><div class=\"w3-container\">"
+    thx_text += "<p>Your name: " + document.getElementById("fb_name").value + "</p>";
+    thx_text += "<p>Your age: " + document.getElementById("fb_age").value + "</p>";
+
+    thx_text += "<p>Your language: ";
+    var languages = document.querySelectorAll("input[type=\"checkbox\"]:checked");
+    var one_lang = false;
+console.log("asdfdghjj");
+    if (languages != null) {
+console.log(languages);
+console.log(languages.length);
+        for (var i = 0; i < languages.length; i++) {
+                console.log(i);
+            if (languages[i].checked){
+                console.log(i + "checked");
+                if (one_lang) {
+                    thx_text += ", "
+                }
+                thx_text += document.querySelector('label[for="' + languages[i].value + '"]').innerHTML;
+                one_lang = true;
+            }
+        }
     }
 
+
+
+    gender_label = document.querySelector('label[for="' + document.querySelector('input[name="gender"]:checked').value + '"]');
+    thx_text += "</p><p>Your genre: ";
+    if (gender_label != null) {
+        thx_text += gender_label.innerHTML;
+    }
+
+    thx_text += "</p><p>Your option of us: " + document.getElementById("like_us").options[document.getElementById("like_us").selectedIndex].text + "</p>";
+    thx_text += "<p>Your comment: " + document.getElementsByTagName("textarea")[0].value + "</p>";
+
+    thx_text += "</div><div class=\"w3-btn-group\"><button class=\"w3-btn w3-green w3-xlarge\" onclick=\"show_thanks()\"  style=\"width:50%\">Yes</button>"
+    thx_text += "<button class=\"w3-btn w3-red w3-xlarge\" onclick=\"show_fb_edit()\" style=\"width:50%\">No</button></div></div>"
+    document.getElementById('fb_thx').innerHTML = thx_text;
+    document.getElementById('fb_form').style.display = "none";
+    document.getElementById('fb_thx').style.display = "block";
+}
+
+function show_fb_edit(){
+    document.getElementById('fb_form').style.display = "block";
+    document.getElementById('fb_thx').style.display = "none";
+}
+
+function show_thanks() {
+    var thx_text = "<div class=\"w3-panel w3-green\">";
+    var personName = document.getElementById("fb_name").value;
+    if (!personName || 0 === personName.length || /^\s*$/.test(personName)) {
+        thx_text += "<h2>Thank you for your feedback!</h2>";
+    } else {
+        thx_text += "<h2>Thank you, " + document.getElementById("fb_name").value + ", for your feedback!</h2>";
+    }
+
+    thx_text += "</div>"
     document.getElementById('fb_thx').innerHTML = thx_text;
     document.getElementById('fb_form').style.display = "none";
     document.getElementById('fb_thx').style.display = "block";

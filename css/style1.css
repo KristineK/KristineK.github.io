@@ -101,7 +101,7 @@ a.lorem:hover {
     display: none;
 }
 
-#fb_form input[type=radio].w3-radio:checked+.w3-validate {
+#fb_form input[type=radio].w3-radio:checked+.w3-validate, #fb_form input[type=checkbox].w3-check:checked+.w3-validate {
     color: #2196F3;
 }
 
