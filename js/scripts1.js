@@ -4,7 +4,7 @@ function show(id, value) {
 }
 
 $( document ).ready(function() {
-    $("#header").load("/menu.html");
+    $("#header").load("/test-sample/menu.html");
 });
 
 function magic(){
