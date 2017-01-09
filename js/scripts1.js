@@ -29,7 +29,7 @@ function prepare_blue(){
 $(function(){
   $('button#start_green').click(function(){
     $('#start_green').hide();
-    $('#start_green').before("<div id='loading_green'><img src='/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#start_green').before("<div id='loading_green'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
       $('#loading_green').hide();
       $('#finish_green').show();
@@ -41,9 +41,9 @@ $(function(){
 $(function(){
   $('button#start_green_and_blue').click(function(){
     $('#start_green_and_blue').hide();
-    $('#start_green_and_blue').before("<div id='loading_green_without_blue'><img src='/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#start_green_and_blue').before("<div id='loading_green_without_blue'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#start_green_and_blue').before("<div id='loading_green_with_blue'><img src='/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
+      $('#start_green_and_blue').before("<div id='loading_green_with_blue'><img src='/test-sample/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
     } , 2000 );
     setTimeout(function() {
       $('#loading_green_without_blue').hide();
