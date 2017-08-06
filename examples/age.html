@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/style1.css">
+    <link rel="stylesheet" type="text/css" href="../css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/scripts1.js"></script>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div class="w3-row-padding">
+
+      <div class="w3-half">
+        <div class="w3-container w3-teal w3-border w3-padding-8 w3-section w3-margin">
+        <h2 id = "message">Name: </h2>
+        <input name="Name" id="name" value="Enter name here" class="w3-input w3-border" type="text">
+        <h2>Age: </h2>
+        <input name="Age" id="age" value="" class="w3-input w3-border" type="number">
+        <p id="error" class="error"></p>
+        <button id="submit" onclick='showNameAndAge()' class="w3-btn w3-white w3-border w3-margin-top" style="width:100%">Submit</button>
+      </div>
+
+    </div>
+  </body>
+</html>
