@@ -22,20 +22,41 @@
 
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
-        <h2>Text</h2>
-        <input name="vfb-9" id="vfb-9" value="This is a text box" class="w3-input w3-border" type="text">
-        <h2>Number</h2>
-        <input name="vfb-9" id="vfb-9" value="5" class="w3-input w3-border" type="number">
+          <h2>Text</h2>
+          <input name="vfb-5" id="text" value="This is a text box" class="w3-input w3-border" type="text">
+          <br/>
+          <button onclick='actShowResult("text")' id="result_button_text" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <button onclick='actShowResult("text", true)' id="clear_result_button_text" class="w3-btn w3-round-xxlarge w3-teal w3-small" disabled>Clear Result</button>
+          <p id="result_text" style="display: none"></p>
         </div>
       </div>
 
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
-        <h2>Textarea</h2>
-        <textarea name="vfb-10" id="vfb-10" class="vfb-textarea  vfb-medium  ">This is a text area</textarea>
+          <h2>Number</h2>
+          <input name="vfb-9" id="number" value="5" class="w3-input w3-border" type="number">
+          <br/>
+          <button onclick='actShowResult("number")' id="result_button_number" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <button onclick='actShowResult("number", true)' id="clear_result_button_number" class="w3-btn w3-round-xxlarge w3-teal w3-small" disabled>Clear Result</button>
+          <p id="result_number" style="display: none"></p>
         </div>
       </div>
 
+      <div class="w3-third">
+        <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
+          <h2>Textarea</h2>
+          <textarea name="vfb-10" id="text_area" class="vfb-textarea  vfb-medium  ">This is a text area</textarea>
+          <br/>
+          <br/>
+          <button onclick='actShowResult("text_area")' id="result_button_text_area" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <button onclick='actShowResult("text_area", true)' id="clear_result_button_text_area" class="w3-btn w3-round-xxlarge w3-teal w3-small" disabled>Clear Result</button>
+          <p id="result_text_area" style="display: none"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w3-row-padding">
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
         <h2>Button</h2>
@@ -45,14 +66,12 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="w3-row-padding">
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-margin">
           <h2>Link</h2>
-          <a title="Link 1" href="link1">This is a link</a>
+          <a title="Link 1" href="link1" id="link1">This is a link</a>
           <a title="Link 2">This is a link without a destination point</a>
+          <h3><a title="Link 1" href="/" id="link1">This is a link to Homepage</a></ h3>
         </div>
       </div>
 
@@ -73,9 +92,14 @@
             <label for="vfb-6-2" class="w3-validate">Option 3</label>
           </span>
           </div>
+          <br/>
+          <button onclick='actShowResult("checkbox")' id="result_button_checkbox" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <p id="result_checkbox" style="display: none"></p>
         </div>
       </div>
+    </div>
 
+    <div class="w3-row-padding">
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
         <h2>Radio</h2>
@@ -93,11 +117,12 @@
             <label for="vfb-7-3" class="w3-validate">Option 3</label>
           </span>
           </div>
+          <br/>
+          <button onclick='actShowResult("radio")' id="result_button_ratio" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <p id="result_radio" style="display: none"></p>
         </div>
       </div>
-    </div>
 
-    <div class="w3-row-padding">
       <div class="w3-third">
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
         <h2>Select </h2>
@@ -107,6 +132,10 @@
           <option value="value2">Option 2</option>
           <option value="value3">Option 3</option>
         </select>
+          <br/>
+          <br/>
+          <button onclick='actShowResult("select")' id="result_button_select" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <p id="result_select" style="display: none"></p>
         </div>
       </div>
 
@@ -114,13 +143,9 @@
         <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
         <h2>Date</h2>
         <input name="vfb-8" id="vfb-8" value="" class="w3-input w3-border" data-dp-dateformat="mm/dd/yy" type="text">
-        </div>
-      </div>
-
-      <div class="w3-third">
-        <div class="w3-container w3-light-grey w3-border w3-padding-8 w3-section w3-margin">
-        <h2>URL</h2>
-        <input name="vfb-11" id="vfb-11" value="http://www.google.com" class="w3-input w3-border" type="url">
+          <br/>
+          <button onclick='actShowResult("date")' id="result_button_text_area" class="w3-btn w3-round-xxlarge w3-teal w3-small">Result</button>
+          <p id="result_date" style="display: none"></p>
         </div>
       </div>
     </div>

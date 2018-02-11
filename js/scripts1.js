@@ -244,14 +244,9 @@ function show_fd_review() {
     thx_text += "<p>Your language: ";
     var languages = document.querySelectorAll("input[type=\"checkbox\"]:checked");
     var one_lang = false;
-console.log("asdfdghjj");
     if (languages != null) {
-console.log(languages);
-console.log(languages.length);
         for (var i = 0; i < languages.length; i++) {
-                console.log(i);
             if (languages[i].checked){
-                console.log(i + "checked");
                 if (one_lang) {
                     thx_text += ", "
                 }
@@ -298,3 +293,62 @@ function show_thanks() {
     document.getElementById('fb_form').style.display = "none";
     document.getElementById('fb_thx').style.display = "block";
 }
+
+function actShowResult(type, clear = false) {
+    if (type == "text" || type == "number" || type == "text_area") {
+        if (clear) {
+            document.getElementById("result_" + type).style.display = "none";
+        } else {
+            value = document.getElementById(type).value;
+            document.getElementById('result_' + type).innerHTML = 'You entered ' + type.replace('_', ' ') + ': "' + value.replace(/\n|\r/g, '<br />')+ '"';
+            document.getElementById("result_" + type).style.display = "block";
+        }
+        document.getElementById("clear_result_button_" + type).disabled = clear;
+    } else {
+        document.getElementById("result_" + type).style.display = "block";
+        if (type == "checkbox") {
+            // value = document.getElementById("vfb-10").value;
+            var values = document.querySelectorAll("input[type=\"checkbox\"]:checked");
+            var one_lang = false;
+            var value = "";
+            if (values != null) {
+                for (var i = 0; i < values.length; i++) {
+                    if (values[i].checked) {
+                        if (one_lang) {
+                            value += ", "
+                        }
+                        value += values[i].value;
+                        one_lang = true;
+                    }
+                }
+            }
+            if (value == "") {
+                document.getElementById('result_checkbox').innerHTML = "You had not selected anything";
+            } else {
+                document.getElementById('result_checkbox').innerHTML = "You selected value(s): " + value;
+            }
+        } else if (type == "select") {
+            var selected = document.getElementById("vfb-12").options[document.getElementById("vfb-12").selectedIndex].text;
+            if (selected == "Choose your option") {
+                document.getElementById('result_select').innerHTML = "You had not selected anything";
+            } else {
+                document.getElementById('result_select').innerHTML = "You selected option: " + selected;
+            }
+        } else if (type == "radio") {
+            var ratio = document.querySelector('input[name="vfb-7"]:checked');
+            if (ratio === null) {
+                document.getElementById('result_radio').innerHTML = "You had not selected anything";
+            } else {
+                document.getElementById('result_radio').innerHTML = "You selected option: " + ratio.value;
+            }
+        } else if (type == "date") {
+            value = document.getElementById("vfb-8").value;
+            if (value == "") {
+                document.getElementById('result_date').innerHTML = "You had not entered any date";
+            } else {
+                document.getElementById('result_date').innerHTML = "You entered date: " + value;
+            }
+        }
+    }
+}
+
