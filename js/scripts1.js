@@ -171,6 +171,14 @@ function clickToEnterNumber() {
     }
 }
 
+function goToAlertedPage() {
+    if (confirm("Want to see an alerted page?!") == true) {
+        window.location = 'al_p';
+    } else {
+        document.getElementById("textForAlerts").innerHTML = "So you desided to say? Good!";
+    }
+}
+
 function openModalForAddPerson() {
     document.getElementById("modal_button").innerHTML = "Add";
     document.getElementById("name").value = "";
