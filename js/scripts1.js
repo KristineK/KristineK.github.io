@@ -95,7 +95,7 @@ function numberValidation() {
         text = "Number is too big";
     } else {
         text = ""
-        alert("Square of " + x + " is " + Math.sqrt(x).toFixed(2));
+        alert("Square root of " + x + " is " + Math.sqrt(x).toFixed(2));
         document.getElementById("numb").value = null;
         document.getElementById("numb").className = "w3-input w3-border w3-light-grey required";
     }
