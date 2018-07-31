@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/style1.css">
+    <link rel="stylesheet" type="text/css" href="../css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/scripts1.js"></script>
+    <script>
+ 
+    $(window).on("load", function() {
+        let searchParams = new URLSearchParams(window.location.search);
+        var age = searchParams.get("age");
+        if (age < 14) {
+            age_group = "a kid";
+        } else if (age < 20) {
+            age_group = "a teenager";
+        } else if (age < 120) {
+            age_group = "an adult";
+        } else {
+            age_group = "an immortal";
+        }
+        searchParams.get("name");
+        document.getElementsByTagName("h2")[0].innerHTML = "Hello, " + searchParams.get("name") + ", you are " + age_group;
+    });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div class="w3-row-padding">
+
+      <div class="w3-half">
+        <div class="w3-container w3-teal w3-border w3-padding-8 w3-section w3-margin">
+        <h2 id = "messages"></h2>
+        <button onclick="location.href='age.html'" type="button" class="w3-btn w3-white w3-border w3-margin-top" style="width:100%">Back</button>
+      </div>
+
+    </div>
+  </body>
+</html>

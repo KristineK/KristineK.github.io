@@ -102,33 +102,22 @@ function numberValidation() {
     document.getElementById("ch1_error").innerHTML = text;
 }
 
-function showNameAndAge() {
+function validateAge() {
     var age_group, error_message;
     var name = document.getElementById("name").value;
     var age = document.getElementById("age").value;
 
-    if (!name || 0 === name.length || /^\s*$/.test(name) || name === "Enter name here" || !age || 0 === age.length || /^\s*$/.test(age)) {
-        error_message = "You haven't entered anything in name or in age field";
+    if (!age || 0 === age.length || /^\s*$/.test(age)) {
+        error_message = "You haven't entered anything in age field";
+    } else if (!name || 0 === name.length || /^\s*$/.test(name) || name === "Enter name here" )  {
+        error_message = "You haven't entered anything in name field";
     } else if (age < 0) {
-        error_message = "Sorry, " + name + " you have not been born yet";
+        error_message = "Age cannot be less then 0";
     } else {
-        error_message = "";
-        $('#name').hide();
-        $('#age').hide();
-        $('#submit').hide();
-        $("h2:nth-of-type(2)").hide();
-        if (age < 14) {
-            age_group = "a kid";
-        } else if (age < 20) {
-            age_group = "a teenager"
-        } else if (age < 120) {
-            age_group = "an adult"
-        } else {
-            age_group = "an immortal"
-        }
-        document.getElementsByTagName("h2")[0].innerHTML = "Hello, " + name + ", you are " + age_group;
+        return true;
     }
     document.getElementById("error").innerHTML = error_message;
+    return false;
 }
 
 
