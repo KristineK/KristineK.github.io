@@ -265,7 +265,7 @@ function getAge() {
         age_group = "an immortal";
     }
     var name = searchParams.get("name");
-    $("#messages").text("Hello, " + name + ", you are " + age_group);
+    $("#message").text("Hello, " + name + ", you are " + age_group);
 }
 
 function getFeedbackSummary() {
