@@ -243,9 +243,24 @@ function getAge() {
     }
     var name = searchParams.get("name");
     $("#messages").text("Hello, " + name + ", you are " + age_group);
-    // document.getElementsByTagName("h2")[0].innerHTML = "Hello, ";
-    //+ name;
-    // + ", you are " + age_group;
+}
+function getFeedbackSummary() {
+    let searchParams = new URLSearchParams(window.location.search);
+    $("#name").text(searchParams.get("name"));
+    $("#age").text(searchParams.get("age"));
+    $("#language").text(searchParams.getAll("language"));
+    $("#gender").text(searchParams.get("gender"));
+    $("#option").text(searchParams.get("option"));
+    $("#comment").text(searchParams.get("comment"));
+}
+
+function getFeedback() {
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("name")) {
+        $("#message").text("Thank you, " + searchParams.get("name") + ", for your feedback!");
+    }else {
+        $("#message").text("Thank you for your feedback!");
+    }
 }
 
 function show_fd_review() {
@@ -286,14 +301,14 @@ function show_fd_review() {
 
     thx_text += "</div><div class=\"w3-btn-group\"><button class=\"w3-btn w3-green w3-xlarge\" onclick=\"show_thanks()\"  style=\"width:50%\">Yes</button>"
     thx_text += "<button class=\"w3-btn w3-red w3-xlarge\" onclick=\"show_fb_edit()\" style=\"width:50%\">No</button></div></div>"
-    document.getElementById('fb_thx').innerHTML = thx_text;
+    // document.getElementById('fb_thx').innerHTML = thx_text;
     document.getElementById('fb_form').style.display = "none";
-    document.getElementById('fb_thx').style.display = "block";
+    // document.getElementById('fb_thx').style.display = "block";
 }
 
 function show_fb_edit(){
     document.getElementById('fb_form').style.display = "block";
-    document.getElementById('fb_thx').style.display = "none";
+    // document.getElementById('fb_thx').style.display = "none";
 }
 
 function show_thanks() {
@@ -306,9 +321,9 @@ function show_thanks() {
     }
 
     thx_text += "</div>"
-    document.getElementById('fb_thx').innerHTML = thx_text;
+    // document.getElementById('fb_thx').innerHTML = thx_text;
     document.getElementById('fb_form').style.display = "none";
-    document.getElementById('fb_thx').style.display = "block";
+    // document.getElementById('fb_thx').style.display = "block";
 }
 
 function actShowResult(type, clear = false) {
