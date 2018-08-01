@@ -28,11 +28,11 @@ function prepare_blue(){
 
 $(function(){
   $('button#start_green').click(function(){
-    $('#start_green').hide();
-    $('#start_green').before("<div id='loading_green'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#start_green').remove();
+    $('#green_loader').append("<div id='loading_green'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#loading_green').hide();
-      $('#finish_green').show();
+      $('#loading_green').remove();
+      $('#green_loader').append("<h2 id=\"finish_green\"><i class=\"fa fa-tint\" style=\"font-size:30px;color:green\"></i> <label style=\"color: green;\">Green</label> Loaded</h2>");
     } , 4500 );
   });
 });
@@ -40,19 +40,19 @@ $(function(){
 
 $(function(){
   $('button#start_green_and_blue').click(function(){
-    $('#start_green_and_blue').hide();
-    $('#start_green_and_blue').before("<div id='loading_green_without_blue'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#start_green_and_blue').remove();
+    $('#green_and_blue_loader').append("<div id='loading_green_without_blue'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#start_green_and_blue').before("<div id='loading_green_with_blue'><img src='/test-sample/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
+      $('#green_and_blue_loader').append("<div id='loading_green_with_blue'><img src='/test-sample/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
     } , 2000 );
     setTimeout(function() {
-      $('#loading_green_without_blue').hide();
-      $('#start_green_and_blue').before("<div id='loading_blue_without_green'><i class=\"fa fa-tint\" style=\"font-size:24px;color:green\"></i> <label style=\"color: green;\">Green</label> finished waiting for <label style=\"color: blue;\">blue</label></div>");
+      $('#loading_green_without_blue').remove();
+      $('#green_and_blue_loader').append("<div id='loading_blue_without_green'><i class=\"fa fa-tint\" style=\"font-size:24px;color:green\"></i> <label style=\"color: green;\">Green</label> finished waiting for <label style=\"color: blue;\">blue</label></div>");
     } , 4000 );
     setTimeout(function() {
-      $('#loading_green_with_blue').hide();
-      $('#loading_blue_without_green').hide();
-      $('#finish_green_and_blue').show();
+      $('#loading_green_with_blue').remove();
+      $('#loading_blue_without_green').remove();
+      $('#green_and_blue_loader').append("<h2 id=\"finish_green_and_blue\"><i class=\"fa fa-tint\" style=\"font-size:30px;color:green\"></i> <label style=\"color: green;\">Green</label> and <label style=\"color: blue;\">Blue</label> <i class=\"fa fa-tint\" style=\"font-size:30px;color:blue\"></i>Loaded</h2>");
     } , 7000 );
   });
 });
@@ -169,63 +169,86 @@ function goToAlertedPage() {
 }
 
 function openModalForAddPerson() {
-    document.getElementById("modal_button").innerHTML = "Add";
-    document.getElementById("name").value = "";
-    document.getElementById("job").value = "";
-    document.getElementById("modal_button").setAttribute("onclick", "addPersonToList()");
-    showPeopleList(false, "Add person");
+    window.location = 'task3_2.html';
 }
 
 function openModalForEditPerson(index) {
-    var editPersion = document.getElementById("person" + index);
-    document.getElementById("name").value = editPersion.getElementsByClassName("name")[0].innerHTML;
-    document.getElementById("job").value = editPersion.getElementsByClassName("job")[0].innerHTML;
-    document.getElementById("modal_button").innerHTML = "Edit";
-    document.getElementById("modal_button").setAttribute("onclick", "editPersonToList(" + index + ")");
-    showPeopleList(false, "Edit person");
+    window.location = 'task3_2.html?id=' + index;
+}
+
+function getPerson() {
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("id")) {
+        document.getElementById("modal_button").innerHTML = "Edit";
+        var id = searchParams.get("id");
+        document.getElementById("modal_button").setAttribute("onclick", "editPerson(" + id + ")");
+        document.getElementById("name").value = JSON.parse(localStorage.getItem("person" + id)).name;
+        document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
+    } else {
+        document.getElementById("modal_button").innerHTML = "Add";
+    }
 }
 
 function addPersonToList() {
-    var idForNewPersion;
-    var newPersion;
+    var pi = 0;
+    for (var i = 0; i < localStorage.length - 1; i++) {
+        while (localStorage.getItem("person" + pi) == null) {
+            pi++;
+        }
+        pi++;
+    }
 
-    var lastPersionIndex = document.getElementById("listOfPeople").getElementsByTagName("li").length;
-    if (lastPersionIndex > 0) {
-        var lastPersionId = document.getElementById("listOfPeople").getElementsByTagName("li")[lastPersionIndex - 1].getAttribute("id");
-        idForNewPersion = parseInt(lastPersionId.replace(/person/, "")) + 1;
-    } else
-        idForNewPersion = 0;
-
-    newPersion = '<li class="w3-padding-16" id="person' + idForNewPersion + '">';
-    newPersion += "<span onclick=\"deletePerson(" + idForNewPersion + ")\" class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">&times;</span>";
-    newPersion += "<span onclick=\"openModalForEditPerson(" + idForNewPersion + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">";
-    newPersion += '<i class="fa fa-pencil"></i>';
-    newPersion += '</span>';
-    newPersion += '<span class="w3-xlarge name">' + document.getElementById("name").value +'</span><br>';
-    newPersion += '<span class="job">' + document.getElementById("job").value + '</span>';
-    newPersion += '</li>';
-
-    document.getElementById("listOfPeople").innerHTML += newPersion;
-    showPeopleList(true);
+    var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
+    localStorage.setItem("person" + pi, JSON.stringify(p));
+    window.location = 'task3.html';
+    console.log(pi)
 }
 
 
-function editPersonToList(index) {
-    var editPerson = document.getElementById("person" + index);
-    editPerson.getElementsByClassName("name")[0].innerHTML = document.getElementById("name").value;
-    editPerson.getElementsByClassName("job")[0].innerHTML = document.getElementById("job").value;
-    showPeopleList(true);
-}
-
-function showPeopleList(show, text = "People with jobs") {
-    document.getElementById("addEditPerson").style.display = show ? "none" : "block";
-    document.getElementById("listOfPeople").style.display = show ? "block" : "none";
-    document.getElementById("addPersonBtn").style.display = show ? "block" : "none";
-    document.getElementsByTagName("h2")[0].innerHTML = text;
+function editPerson(index) {
+    var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
+    localStorage.setItem("person" + index, JSON.stringify(p));
+    window.location = 'task3.html';
 }
 
 function deletePerson(index) {
     document.getElementById("person" + index).remove();
+    localStorage.removeItem("person" + index);
+}
+
+function setNewPeople() {
+    resetListOfPeople();
+    localStorage.setItem("reload", false);    
+}
+
+function resetListOfPeople() {
+    localStorage.clear();
+    var p1 = {name:"Mike", job:"Web Designer"};
+    var p2 = {name:"Jill", job:"Support"};
+    var p3 = {name:"Jane", job:"Accountant"};
+    localStorage.setItem("person0", JSON.stringify(p1));
+    localStorage.setItem("person1", JSON.stringify(p2));
+    localStorage.setItem("person2", JSON.stringify(p3));
+    localStorage.setItem("reload", true);
+    location.reload()
+}
+
+function loadPeopleFromList() {
+    var pi = 0;
+    for (var i = 0; i < localStorage.length - 1; i++) {
+        while (localStorage.getItem("person" + pi) == null) {
+            pi++;
+        }
+        $("#listOfPeople").append("<li class=\"w3-padding-16\" id=\"person" + pi + "\">" +
+            "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
+            "<span onclick=\"openModalForEditPerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">" +
+            "<i class=\"fa fa-pencil\"></i>" +
+            "</span>" +
+            "<span class=\"w3-xlarge name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span><br>" +
+            "<span class=\"job\">" + JSON.parse(localStorage.getItem("person" + pi)).job + "</span>" +
+            "</li>");
+        pi++;
+    }
 }
 
 function getAge() {
