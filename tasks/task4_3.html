@@ -11,11 +11,13 @@
     <script src="../js/scripts.js"></script>
     <script>
       $(document).ready(function() {
+          $("#header").load("/test-sample/menu.html");
           $("#message").load(getFeedback());
       });
     </script>
   </head>
   <body>
+    <div id="header"></div>
     <div class="w3-row">
       <div class="w3-half">
         <div class="" id="fb_thx">
