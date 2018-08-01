@@ -3,7 +3,7 @@ function show(id, value) {
   document.getElementById(id).style.visibility = value ? 'visible' : 'hidden';
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
     $("#header").load("/test-sample/menu.html");
 });
 
@@ -228,10 +228,30 @@ function deletePerson(index) {
     document.getElementById("person" + index).remove();
 }
 
+function getAge() {
+    let searchParams = new URLSearchParams(window.location.search);
+    var age = searchParams.get("age");
+    var age_group = "";
+    if (age < 14) {
+        age_group = "a kid";
+    } else if (age < 20) {
+        age_group = "a teenager";
+    } else if (age < 120) {
+        age_group = "an adult";
+    } else {
+        age_group = "an immortal";
+    }
+    var name = searchParams.get("name");
+    $("#messages").text("Hello, " + name + ", you are " + age_group);
+    // document.getElementsByTagName("h2")[0].innerHTML = "Hello, ";
+    //+ name;
+    // + ", you are " + age_group;
+}
+
 function show_fd_review() {
     var thx_text = "<div class=\"w3-card-4\"><header class=\"w3-container w3-light-grey\">";
-      // <div class="w3-card-4" style="width:70%">
-    // <header class="w3-container w3-light-grey">
+
+
     var personName = document.getElementById("fb_name").value;
     thx_text += "<h2>Is this the feedback you want to give us?</h2>";
     thx_text += "</header><div class=\"w3-container\">"

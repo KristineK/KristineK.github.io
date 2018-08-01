@@ -9,24 +9,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../js/scripts1.js"></script>
-    <script>
- 
-    $(window).on("load", function() {
-        let searchParams = new URLSearchParams(window.location.search);
-        var age = searchParams.get("age");
-        if (age < 14) {
-            age_group = "a kid";
-        } else if (age < 20) {
-            age_group = "a teenager";
-        } else if (age < 120) {
-            age_group = "an adult";
-        } else {
-            age_group = "an immortal";
-        }
-        searchParams.get("name");
-        document.getElementsByTagName("h2")[0].innerHTML = "Hello, " + searchParams.get("name") + ", you are " + age_group;
-    });
-    </script>
+    <script>$(window).load(getAge());</script>
   </head>
   <body>
     <div id="header"></div>
