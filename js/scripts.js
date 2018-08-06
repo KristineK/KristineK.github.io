@@ -28,10 +28,10 @@ function prepare_blue(){
 
 $(function(){
   $('button#start_green').click(function(){
-    $('#start_green').remove();
+    $('#start_green').hide();
     $('#green_loader').append("<div id='loading_green'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#loading_green').remove();
+      $('#loading_green').hide();
       $('#green_loader').append("<h2 id=\"finish_green\"><i class=\"fa fa-tint\" style=\"font-size:30px;color:green\"></i> <label style=\"color: green;\">Green</label> Loaded</h2>");
     } , 4500 );
   });
@@ -40,18 +40,18 @@ $(function(){
 
 $(function(){
   $('button#start_green_and_blue').click(function(){
-    $('#start_green_and_blue').remove();
+    $('#start_green_and_blue').hide();
     $('#green_and_blue_loader').append("<div id='loading_green_without_blue'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
       $('#green_and_blue_loader').append("<div id='loading_green_with_blue'><img src='/test-sample/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
     } , 2000 );
     setTimeout(function() {
-      $('#loading_green_without_blue').remove();
+      $('#loading_green_without_blue').hide();
       $('#green_and_blue_loader').append("<div id='loading_blue_without_green'><i class=\"fa fa-tint\" style=\"font-size:24px;color:green\"></i> <label style=\"color: green;\">Green</label> finished waiting for <label style=\"color: blue;\">blue</label></div>");
     } , 4000 );
     setTimeout(function() {
-      $('#loading_green_with_blue').remove();
-      $('#loading_blue_without_green').remove();
+      $('#loading_green_with_blue').hide();
+      $('#loading_blue_without_green').hide();
       $('#green_and_blue_loader').append("<h2 id=\"finish_green_and_blue\"><i class=\"fa fa-tint\" style=\"font-size:30px;color:green\"></i> <label style=\"color: green;\">Green</label> and <label style=\"color: blue;\">Blue</label> <i class=\"fa fa-tint\" style=\"font-size:30px;color:blue\"></i>Loaded</h2>");
     } , 7000 );
   });
