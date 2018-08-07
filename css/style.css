@@ -108,3 +108,22 @@ a.lorem:hover {
 #fb_form .w3-select option[disabled] {
     color: #aaa;
 }
+
+#dragBox1, #dragBox2 {
+    float: left;
+    width: 100px;
+    height: 65px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#black_box {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+#blue_box {
+    background-color: blue;
+    text-align: center;
+    color: white;
+}

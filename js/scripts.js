@@ -214,6 +214,7 @@ function editPerson(index) {
 function deletePerson(index) {
     document.getElementById("person" + index).remove();
     localStorage.removeItem("person" + index);
+    location.reload();
 }
 
 function setNewPeople() {
@@ -239,18 +240,34 @@ function loadPeopleFromList() {
         while (localStorage.getItem("person" + pi) == null) {
             pi++;
         }
-        $("#listOfPeople").append("<li class=\"w3-padding-16\" id=\"person" + pi + "\">" +
+        $("#listOfPeople").append(
+            "<div class=\"w3-padding-16\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"> " +
+            "<li draggable=\"true\" ondragstart=\"drag(event)\" id=\"person" + pi + "\">" +
             "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
             "<span onclick=\"openModalForEditPerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">" +
             "<i class=\"fa fa-pencil\"></i>" +
             "</span>" +
             "<span class=\"w3-xlarge name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span><br>" +
             "<span class=\"job\">" + JSON.parse(localStorage.getItem("person" + pi)).job + "</span>" +
-            "</li>");
+            "</li>" +
+            "</div>"
+            );
         pi++;
     }
 }
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
 function getAge() {
     let searchParams = new URLSearchParams(window.location.search);
     var age = searchParams.get("age");
