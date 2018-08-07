@@ -109,7 +109,7 @@ a.lorem:hover {
     color: #aaa;
 }
 
-#dragBox1, #dragBox2 {
+#drag_box1, #drag_box2 {
     float: left;
     width: 100px;
     height: 65px;
