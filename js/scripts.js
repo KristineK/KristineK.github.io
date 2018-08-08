@@ -243,8 +243,8 @@ function loadPeopleFromList() {
         $("#listOfPeople").append(
             "<div class=\"w3-padding-16\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"> " +
             "<li draggable=\"true\" ondragstart=\"drag(event)\" id=\"person" + pi + "\">" +
-            "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
-            "<span onclick=\"openModalForEditPerson(" + pi + ")\"  class=\"w3-closebtn w3-padding w3-margin-right w3-medium\">" +
+            "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
+            "<span onclick=\"openModalForEditPerson(" + pi + ")\"  class=\"w3-closebtn editbtn w3-padding w3-margin-right w3-medium\">" +
             "<i class=\"fa fa-pencil\"></i>" +
             "</span>" +
             "<span class=\"w3-xlarge name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span><br>" +
