@@ -4,7 +4,7 @@ function show(id, value) {
 }
 
 $(document).ready(function() {
-    $("#header").load("/test-sample/menu.html");
+    $("#header").load("/site/menu.html");
 });
 
 function magic(){
@@ -29,7 +29,7 @@ function prepare_blue(){
 $(function(){
   $('button#start_green').click(function(){
     $('#start_green').hide();
-    $('#green_loader').append("<div id='loading_green'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#green_loader').append("<div id='loading_green'><img src='/site/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
       $('#loading_green').hide();
       $('#green_loader').append("<h2 id=\"finish_green\"><i class=\"fa fa-tint\" style=\"font-size:30px;color:green\"></i> <label style=\"color: green;\">Green</label> Loaded</h2>");
@@ -41,9 +41,9 @@ $(function(){
 $(function(){
   $('button#start_green_and_blue').click(function(){
     $('#start_green_and_blue').hide();
-    $('#green_and_blue_loader').append("<div id='loading_green_without_blue'><img src='/test-sample/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
+    $('#green_and_blue_loader').append("<div id='loading_green_without_blue'><img src='/site/img/green-loader.gif'> Loading <label style=\"color: green;\">green</label>...</div>");
     setTimeout(function() {
-      $('#green_and_blue_loader').append("<div id='loading_green_with_blue'><img src='/test-sample/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
+      $('#green_and_blue_loader').append("<div id='loading_green_with_blue'><img src='/site/img/blue-loader.gif'> Loading <label style=\"color: blue;\">blue</label>...</div>");
     } , 2000 );
     setTimeout(function() {
       $('#loading_green_without_blue').hide();
