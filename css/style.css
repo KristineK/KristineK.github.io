@@ -9,8 +9,7 @@ label.vfb-desc {
     font: normal normal normal 14px / 22px "Arial", Helvetica, Arial, Verdana, sans-serif;
   }
 
-#show_me
-{
+#show_me {
     visibility: hidden;
 }
 
@@ -111,19 +110,15 @@ a.lorem:hover {
 
 #drag_box1, #drag_box2 {
     float: left;
-    width: 100px;
-    height: 65px;
+    width: 120px;
+    height: 120px;
     margin: 10px;
     padding: 10px;
     border: 1px solid black;
 }
+
 #black_box {
     background-color: black;
-    text-align: center;
-    color: white;
-}
-#blue_box {
-    background-color: blue;
     text-align: center;
     color: white;
 }
