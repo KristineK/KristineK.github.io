@@ -162,18 +162,18 @@ function clickToEnterNumber() {
 
 function goToAlertedPage() {
     if (confirm("Want to see an alerted page?!") == true) {
-        window.location = 'al_p';
+        window.location = 'alerted_page';
     } else {
         document.getElementById("textForAlerts").innerHTML = "So you desided to say? Good!";
     }
 }
 
 function openModalForAddPerson() {
-    window.location = 'task3_2.html';
+    window.location = 'enter_a_new_person.html';
 }
 
 function openModalForEditPerson(index) {
-    window.location = 'task3_2.html?id=' + index;
+    window.location = 'enter_a_new_person.html?id=' + index;
 }
 
 function getPerson() {
@@ -200,7 +200,7 @@ function addPersonToList() {
 
     var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
     localStorage.setItem("person" + pi, JSON.stringify(p));
-    window.location = 'task3.html';
+    window.location = 'list_of_people.html';
     console.log(pi)
 }
 
@@ -208,7 +208,7 @@ function addPersonToList() {
 function editPerson(index) {
     var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
     localStorage.setItem("person" + index, JSON.stringify(p));
-    window.location = 'task3.html';
+    window.location = 'list_of_people.html';
 }
 
 function deletePerson(index) {
