@@ -266,8 +266,16 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    if (ev.target.id == "drag_box1") {
+        document.getElementById(data).className = "orange";
+        document.getElementById(data).innerHTML = "Orange box";
+    } else if (ev.target.id == "drag_box2") {
+        document.getElementById(data).className = "green";
+        document.getElementById(data).innerHTML = "Green box";
+    } 
     ev.target.appendChild(document.getElementById(data));
 }
+
 function getAge() {
     let searchParams = new URLSearchParams(window.location.search);
     var age = searchParams.get("age");

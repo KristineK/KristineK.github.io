@@ -117,8 +117,17 @@ a.lorem:hover {
     border: 1px solid black;
 }
 
-#black_box {
+#box.orange {
+    background-color: orange;
+}
+
+#box.green {
+    background-color: green;
+}
+
+#box {
     background-color: black;
     text-align: center;
     color: white;
 }
+
