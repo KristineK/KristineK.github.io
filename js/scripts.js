@@ -315,9 +315,9 @@ function getFeedback() {
 function openFeedback() {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("name") && searchParams.get("name") != "") {
-        window.location = 'task4_3.html?name=' + searchParams.get("name");
+        window.location = 'thank_you_for_feedback.html?name=' + searchParams.get("name");
     } else {
-        window.location = 'task4_3.html';
+        window.location = 'thank_you_for_feedback.html';
     }
 }
 
