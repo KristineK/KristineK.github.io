@@ -168,12 +168,33 @@ function goToAlertedPage() {
     }
 }
 
+function openModalForAddPersonWithJob() {
+    window.location = 'enter_a_new_person_with_a_job.html';
+}
+
 function openModalForAddPerson() {
     window.location = 'enter_a_new_person.html';
 }
 
 function openModalForEditPerson(index) {
     window.location = 'enter_a_new_person.html?id=' + index;
+}
+
+function openModalForEditPersonWithJob(index) {
+    window.location = 'enter_a_new_person_with_a_job.html?id=' + index;
+}
+
+function getPersonWithJob() {
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("id")) {
+        document.getElementById("modal_button").innerHTML = "Edit";
+        var id = searchParams.get("id");
+        document.getElementById("modal_button").setAttribute("onclick", "editPerson(" + id + ")");
+        document.getElementById("name").value = JSON.parse(localStorage.getItem("person" + id)).name;
+        document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
+    } else {
+        document.getElementById("modal_button").innerHTML = "Add";
+    }
 }
 
 function getPerson() {
@@ -183,7 +204,30 @@ function getPerson() {
         var id = searchParams.get("id");
         document.getElementById("modal_button").setAttribute("onclick", "editPerson(" + id + ")");
         document.getElementById("name").value = JSON.parse(localStorage.getItem("person" + id)).name;
+        document.getElementById("surname").value = JSON.parse(localStorage.getItem("person" + id)).surname;
         document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
+        document.getElementById("dob").value = JSON.parse(localStorage.getItem("person" + id)).dob;
+        document.getElementById("status").value = JSON.parse(localStorage.getItem("person" + id)).status;
+        if (JSON.parse(localStorage.getItem("person" + id)).language.includes("Spanish")) {
+            document.getElementById("spanish").checked = true;
+        } else {
+            document.getElementById("spanish").checked = false;
+        }
+        if (JSON.parse(localStorage.getItem("person" + id)).language.includes("English")) {
+            document.getElementById("english").checked = true;
+        } else {
+            document.getElementById("english").checked = false;
+        }
+        if (JSON.parse(localStorage.getItem("person" + id)).language.includes("French")) {
+            document.getElementById("french").checked = true;
+        } else {
+            document.getElementById("french").checked = false;
+        }
+        if (JSON.parse(localStorage.getItem("person" + id)).gender.includes("female")) {
+            document.getElementById("female").checked = true;
+        } else {
+            document.getElementById("male").checked = true;
+        }
     } else {
         document.getElementById("modal_button").innerHTML = "Add";
     }
@@ -197,8 +241,31 @@ function addPersonToList() {
         }
         pi++;
     }
+    var language, gender;
+    if (document.getElementById("english").checked) {
+        language = "English, "
+    }
+    if (document.getElementById("french").checked) {
+        language += "French, "
+    }
+    if (document.getElementById("spanish").checked) {
+        language += "spanish, "
+    }
+    if (document.getElementById("male").checked) {
+        gender = "male"
+    } else if (document.getElementById("female").checked) {
+        gender = "female"
+    }
 
-    var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
+    var p = {name:document.getElementById("name").value, 
+        surname:document.getElementById("surname").value,
+        job:document.getElementById("job").value,
+        dob:document.getElementById("dob").value,
+        status:document.getElementById("status").value,
+        language:language,
+        gender:gender,
+        };
+
     localStorage.setItem("person" + pi, JSON.stringify(p));
     window.location = 'list_of_people.html';
     console.log(pi)
@@ -206,7 +273,34 @@ function addPersonToList() {
 
 
 function editPerson(index) {
-    var p = {name:document.getElementById("name").value, job:document.getElementById("job").value};
+    var language, gender;
+    if (document.getElementById("english").checked) {
+        language = "English, "
+    }
+    if (document.getElementById("french").checked) {
+        language += "French, "
+    }
+    if (document.getElementById("spanish").checked) {
+        language += "Spanish, "
+    }
+    if (language != null) {
+        language = language.substring(0, language.length - 2);
+    }
+    if (document.getElementById("male").checked) {
+        gender = "male"
+    } else if (document.getElementById("female").checked) {
+        gender = "female"
+    }
+
+    var p = {name:document.getElementById("name").value, 
+        surname:document.getElementById("surname").value,
+        job:document.getElementById("job").value,
+        dob:document.getElementById("dob").value,
+        status:document.getElementById("status").value,
+        language:language,
+        gender:gender,
+        };
+
     localStorage.setItem("person" + index, JSON.stringify(p));
     window.location = 'list_of_people.html';
 }
@@ -224,9 +318,9 @@ function setNewPeople() {
 
 function resetListOfPeople() {
     localStorage.clear();
-    var p1 = {name:"Mike", job:"Web Designer"};
-    var p2 = {name:"Jill", job:"Support"};
-    var p3 = {name:"Jane", job:"Accountant"};
+    var p1 = {name:"Mike", surname:"Kid", dob:"12/25/1986", job:"Web Designer", language:"English", gender:"male", status:"contractor"};
+    var p2 = {name:"Jill", surname:"Watson", dob:"06/06/1966", job:"Support", language:"Spanish", gender:"female", status:"intern"};
+    var p3 = {name:"Jane", surname:"Doe", dob:"04/01/2001", job:"Accountant", language:"English, French", gender:"female", status:"employee"};
     localStorage.setItem("person0", JSON.stringify(p1));
     localStorage.setItem("person1", JSON.stringify(p2));
     localStorage.setItem("person2", JSON.stringify(p3));
@@ -246,8 +340,35 @@ function loadPeopleFromList() {
             "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
             "<span onclick=\"openModalForEditPerson(" + pi + ")\"  class=\"w3-closebtn editbtn w3-padding w3-margin-right w3-medium\">" +
             "<i class=\"fa fa-pencil\"></i>" +
+            "</span><div class=\"w3-xlarge \">" +
+            "<span class=\"name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span> " +
+            "<span class=\"surname\">" + JSON.parse(localStorage.getItem("person" + pi)).surname + "</span></div><br>" +
+            "<b>Job:</b> <span class=\"job\">" + JSON.parse(localStorage.getItem("person" + pi)).job + "</span>; " +
+            "<b>Date of birth:</b> <span class=\"dob\">" + JSON.parse(localStorage.getItem("person" + pi)).dob + "</span>; " +
+            "<b>Knows language(s):</b> <span class=\"language\">" + JSON.parse(localStorage.getItem("person" + pi)).language + "</span>; " +
+            "<b>Gender:</b> <span class=\"gender\">" + JSON.parse(localStorage.getItem("person" + pi)).gender + "</span>; " +
+            "<b>Employee status:</b> <span class=\"status\">" + JSON.parse(localStorage.getItem("person" + pi)).status + "</span>" +
+            "</li>" +
+            "</div>"
+            );
+        pi++;
+    }
+}
+
+function loadPeopleWithJobsFromList() {
+    var pi = 0;
+    for (var i = 0; i < localStorage.length - 1; i++) {
+        while (localStorage.getItem("person" + pi) == null) {
+            pi++;
+        }
+        $("#listOfPeople").append(
+            "<div class=\"w3-padding-16\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"> " +
+            "<li draggable=\"true\" ondragstart=\"drag(event)\" id=\"person" + pi + "\">" +
+            "<span onclick=\"deletePerson(" + pi + ")\"  class=\"w3-closebtn closebtn w3-padding w3-margin-right w3-medium\">&times;</span>" + 
+            "<span onclick=\"openModalForEditPersonWithJob(" + pi + ")\"  class=\"w3-closebtn editbtn w3-padding w3-margin-right w3-medium\">" +
+            "<i class=\"fa fa-pencil\"></i>" +
             "</span>" +
-            "<span class=\"w3-xlarge name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span><br>" +
+            "<span class=\"w3-xlarge name\">" + JSON.parse(localStorage.getItem("person" + pi)).name + "</span></br>" +
             "<span class=\"job\">" + JSON.parse(localStorage.getItem("person" + pi)).job + "</span>" +
             "</li>" +
             "</div>"
