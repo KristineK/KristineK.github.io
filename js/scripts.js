@@ -194,6 +194,7 @@ function getPersonWithJob() {
         document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
     } else {
         document.getElementById("modal_button").innerHTML = "Add";
+        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='openModalForAddPerson()' id='addPersonBtn'>Clear all fields</button>";
     }
 }
 
@@ -230,6 +231,7 @@ function getPerson() {
         }
     } else {
         document.getElementById("modal_button").innerHTML = "Add";
+        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='openModalForAddPerson()' id='addPersonBtn'>Clear all fields</button>";
     }
 }
 
