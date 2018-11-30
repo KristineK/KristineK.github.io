@@ -194,7 +194,7 @@ function getPersonWithJob() {
         document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
     } else {
         document.getElementById("modal_button").innerHTML = "Add";
-        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='openModalForAddPerson()' id='addPersonBtn'>Clear all fields</button>";
+        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='addPersonWithJobToList()' id='addPersonBtn'>Clear all fields</button>";
     }
 }
 
@@ -233,6 +233,23 @@ function getPerson() {
         document.getElementById("modal_button").innerHTML = "Add";
         document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='openModalForAddPerson()' id='addPersonBtn'>Clear all fields</button>";
     }
+}
+
+function addPersonWithJobToList() {
+    var pi = 0;
+    for (var i = 0; i < localStorage.length - 1; i++) {
+        while (localStorage.getItem("person" + pi) == null) {
+            pi++;
+        }
+        pi++;
+    }
+    var p = {name:document.getElementById("name").value,
+        job:document.getElementById("job").value
+        };
+
+    localStorage.setItem("person" + pi, JSON.stringify(p));
+    window.location = 'list_of_people.html';
+    console.log(pi)
 }
 
 function addPersonToList() {
