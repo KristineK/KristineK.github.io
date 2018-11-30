@@ -189,12 +189,12 @@ function getPersonWithJob() {
     if (searchParams.has("id")) {
         document.getElementById("modal_button").innerHTML = "Edit";
         var id = searchParams.get("id");
-        document.getElementById("modal_button").setAttribute("onclick", "editPerson(" + id + ")");
+        document.getElementById("modal_button").setAttribute("onclick", "editPersonWithJob(" + id + ")");
         document.getElementById("name").value = JSON.parse(localStorage.getItem("person" + id)).name;
         document.getElementById("job").value = JSON.parse(localStorage.getItem("person" + id)).job;
     } else {
         document.getElementById("modal_button").innerHTML = "Add";
-        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='addPersonWithJobToList()' id='addPersonBtn'>Clear all fields</button>";
+        document.getElementsByClassName("clear-btn")[0].innerHTML = "<button class='w3-btn w3-white w3-border w3-left' onclick='openModalForAddPersonWithJob()' id='addPersonBtn'>Clear all fields</button>";
     }
 }
 
@@ -248,7 +248,7 @@ function addPersonWithJobToList() {
         };
 
     localStorage.setItem("person" + pi, JSON.stringify(p));
-    window.location = 'list_of_people.html';
+    window.location = 'list_of_people_with_jobs.html';
     console.log(pi)
 }
 
@@ -288,6 +288,17 @@ function addPersonToList() {
     localStorage.setItem("person" + pi, JSON.stringify(p));
     window.location = 'list_of_people.html';
     console.log(pi)
+}
+
+
+function editPersonWithJob(index) {
+
+    var p = {name:document.getElementById("name").value, 
+        job:document.getElementById("job").value,
+        };
+
+    localStorage.setItem("person" + index, JSON.stringify(p));
+    window.location = 'list_of_people_with_jobs.html';
 }
 
 
